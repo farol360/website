@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Farol360\IsepeEventos\Model;
+namespace Farol360\Ancora\Model;
 
-use Farol360\IsepeEventos\Model;
-use Farol360\IsepeEventos\Model\User;
+use Farol360\Ancora\Model;
+use Farol360\Ancora\Model\User;
 use RKA\Session;
 
 class UserModel extends Model

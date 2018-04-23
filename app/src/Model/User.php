@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Farol360\IsepeEventos\Model;
+namespace Farol360\Ancora\Model;
 
 class User
 {

@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Farol360\IsepeEventos\Model;
+namespace Farol360\Ancora\Model;
 
 // business objects
 
 
 // Ancora objects
-use Farol360\IsepeEventos\Model\Permission;
-use Farol360\IsepeEventos\Model\Role;
-use Farol360\IsepeEventos\Model\User;
+use Farol360\Ancora\Model\Permission;
+use Farol360\Ancora\Model\Role;
+use Farol360\Ancora\Model\User;
 
 class EntityFactory
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Farol360\IsepeEventos\Model;
+namespace Farol360\Ancora\Model;
 
-use Farol360\IsepeEventos\Model;
-use Farol360\IsepeEventos\Model\Permission;
+use Farol360\Ancora\Model;
+use Farol360\Ancora\Model\Permission;
 use GuzzleHttp\Client;
 
 class PermissionModel extends Model
