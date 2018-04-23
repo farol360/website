@@ -1,6 +1,6 @@
-# Ancora - just a PHP way to construct web applications.
+# Ancora - just a PHP way to construct web apps.
 
-This is a tool built by [Maurício Fauth](https://github.com/mauriciofauth) and [Thiago Nardi](https://github.com/thnardi) to develop web apps. We have working on this tool since 2017 in [Farol 360](https://farol360.com.br) jobs.
+This is a tool built by [Maurício Fauth](https://github.com/mauriciofauth) and [Thiago Nardi](https://github.com/thnardi) to develop web apps. We have working on this since 2017 in [Farol 360](https://farol360.com.br) jobs.
 
 ## Dependences
 
