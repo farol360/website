@@ -2,11 +2,13 @@
 
 This is a tool built by [Maurício Fauth](https://github.com/mauriciofauth) and [Thiago Nardi](https://github.com/thnardi) to develop web apps. We have working on this since 2017 in [Farol 360](https://farol360.com.br) jobs.
 
+## Getting Started
+
 The core of application are built with [Slim 3 Framework](https://www.slimframework.com). To understand the code you must focus on slim's *routes* and *dependecies* management and learn about his [middleware](https://www.slimframework.com/docs/v3/concepts/middleware.html) concept.
 
 We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to help anyone who may be interested.
 
-## Dependences
+### Prerequisites
 
  - php 7+;
  - Composer;
@@ -15,10 +17,36 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
  - [Tim Creative Material Kit](https://github.com/creativetimofficial/material-dashboard).
 
 
-## Usage
+### Installing
 
-1) Clone or download the repo files;
-2) run `composer install` command on project folder to install dependencies in *vendor/*;
-3) run `cp .env.edit .env` to create a `.env` copy file
+1) Clone or download the repo files
+```
+git clone https://github.com/thnardi/ancora.git
+```
+2) run composer on project folder to install dependencies
+```
+composer install
+```
+3) copy `.env.edit` file to `.env` to edit database infos
+```
+cp .env.edit .env
+```
 4) create your local database and modify `.env` to insert your db infos
-5) run `vendor/bin/phinx migrate` command on project folder to run `db/migrations` initial database configurations;
+
+5) run migrate command on project folder to run `db/migrations` initial database configurations
+```
+vendor/bin/phinx migrate
+```
+
+
+## Folder Structure
+
+```
+ancora\
+    sass\
+        _variables.scss
+        admin.scss
+        app.scss
+
+```
+
