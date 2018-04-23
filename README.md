@@ -4,7 +4,7 @@ This is a tool built by [Maurício Fauth](https://github.com/mauriciofauth) and 
 
 The core of application are built with [Slim 3 Framework](https://www.slimframework.com). To understand the code you must focus on slim's *routes* and *dependecies* management and learn about his [middleware](https://www.slimframework.com/docs/v3/concepts/middleware.html) concept.
 
-We create a [guide]() to help anyone who may be interested.
+We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to help anyone who may be interested.
 
 ## Dependences
 
