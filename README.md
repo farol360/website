@@ -15,3 +15,8 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
  - [Tim Creative Material Kit](https://github.com/timcreative).
 
 
+## Usage
+
+1) Clone or download de repo files;
+2) run **composer install** command on project folder to install dependencies in *vendor/*;
+3) run **vendor/bin/phinx migrate** command on project folder to run *db/migrations* initial database;
