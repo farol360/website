@@ -23,6 +23,6 @@
         "phpmailer/phpmailer": "^5.2",
         "mpratt/embera": "^1.9",
         "akrabat/rka-slim-session-middleware": "^2.0",
-    },
-    
+    }
+
 }

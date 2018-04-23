@@ -188,7 +188,7 @@ class BaseDataMigration extends AbstractMigration
         ];
         $this->insert('permissions', $permissions);
 
-        $password = password_hash('Ancora1337', PASSWORD_DEFAULT);
+        $password = password_hash('1234', PASSWORD_DEFAULT);
         $users = [
             [
                 'id' => 1,
