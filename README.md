@@ -1,4 +1,4 @@
-# Ancora - a PHP backended way to construct web applications.
+# Ancora - just a PHP way to construct web applications.
 
 This is a tool built by [Maurício Fauth](https://github.com/mauriciofauth) and [Thiago Nardi](https://github.com/thnardi) to develop web apps. 
 
