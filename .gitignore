@@ -4,9 +4,6 @@
 /docs/
 /logs/
 /node_modules/
-/public_html/css/
-/public_html/fonts/
-/public_html/upload/
 /vendor/
 .env
 .sass-cache

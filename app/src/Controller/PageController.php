@@ -16,9 +16,9 @@ use Farol360\Ancora\Model\EntityFactory;
 class PageController extends Controller
 {
     protected $mailer;
-    protected $userModel;
 
-    public function __construct(View $view, FlashMessages $flash, Mailer $mailer, Model $userModel, EntityFactory $entityFactory)
+
+    public function __construct(View $view, FlashMessages $flash, Mailer $mailer, EntityFactory $entityFactory)
     {
         parent::__construct($view, $flash);
         $this->mailer           = $mailer;

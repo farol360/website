@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Farol360\IsepeEventos\Controller;
+namespace Farol360\Ancora\Controller;
 
-use Farol360\IsepeEventos\Controller;
-use Farol360\IsepeEventos\Mailer;
-use Farol360\IsepeEventos\Model;
-use Farol360\IsepeEventos\Model\EntityFactory;
-use Farol360\IsepeEventos\User;
+use Farol360\Ancora\Controller;
+use Farol360\Ancora\Mailer;
+use Farol360\Ancora\Model;
+use Farol360\Ancora\Model\EntityFactory;
+use Farol360\Ancora\User;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Flash\Messages as FlashMessages;

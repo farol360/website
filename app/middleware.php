@@ -21,7 +21,7 @@ $app->add(new Farol360\Ancora\Middleware\PermissionMiddleware($app->getContainer
 $app->add(new Farol360\Ancora\Middleware\AuthMiddleware(
     $app->getContainer()->flash,
     new Farol360\Ancora\Model\UserModel(
-        $app->getContainer()->db,
+        $app->getContainer()->db
     )
 ));
 

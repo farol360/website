@@ -48,12 +48,18 @@
             </button>
 
             <!-- Here you change your brand !-->
-            <a class="navbar-brand" href="{{ base_url() }}" style="padding:0px;">Ancora by Farol 360.</a>
+            <a class="navbar-brand" href="{{ base_url() }}" >Ancora </a>
           </div>
 
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav">
+              {#
+
+               // Example of menu usage with twig. use "nav_active" in page twig to set active class in menu.
+
               <li {% if nav_active == 'firstUseCase' %} class="active" {% else %} {% endif %}><a href="{{ base_url() }}/eventos">First Use Case</a></li>
+
+              #}
             </ul>
             <ul class="nav navbar-nav navbar-right">
               {%- if is_auth() %}
