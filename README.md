@@ -10,7 +10,7 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
 
  - php 7+;
  - Composer;
- - Jquery;
+ - Jquery 3;
  - Bootstrap 3;
  - [Tim Creative Material Kit](https://github.com/timcreative).
 
@@ -18,7 +18,7 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
 ## Usage
 
 1) Clone or download the repo files;
-2) run **composer install** command on project folder to install dependencies in *vendor/*;
-3) run **cp .env.edit .env** to create a *.env* copy file
-4) create your local database and modify *.env* to insert your db infos
-5) run **vendor/bin/phinx migrate** command on project folder to run *db/migrations* initial database configurations;
+2) run `composer install` command on project folder to install dependencies in *vendor/*;
+3) run `cp .env.edit .env` to create a `.env` copy file
+4) create your local database and modify `.env` to insert your db infos
+5) run `vendor/bin/phinx migrate` command on project folder to run `db/migrations` initial database configurations;
