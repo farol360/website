@@ -14,7 +14,11 @@ ancora
 │   │   ├── Controller
 │   │   ├── Middleware
 │   │   ├── Model
-│   │   └── Twig
+│   │   ├── Twig
+│   │   ├── dependencies.php
+│   │   ├── middleware.php
+│   │   ├── routes.php
+│   │   └── settings.php
 │   └── view
 │       ├── ...
 │       └── layout.twig
@@ -33,7 +37,7 @@ All the solution is implemented on `app/` folder. The core files are `dependenci
 
 The MVC concept are strongly implemented on this solution. Let's take an overview by MVC layers.
 
-## Model layer
+### Model
 
 The model is implemented on `src/model/` folder. It work with 2 classes: a plain one refering exactly the table in db and a same name ended by `Model` pair class that extends `src/Model.php` with have all sql functions.
 
@@ -43,7 +47,7 @@ The way to add a new class is:
 3) Insert a function on `src/model/EntityFactory.php` with an array $data as parameter and return a new Example instance. (this is a Factory design pattern implementation);
 4) Add the `exampleModel` class as atribute in controller you want to work. You will need to pass it as parameter in contructor and update `src/dependencies` file.
 
-## View
+### View
 
 In View we use [Twig](https://twig.symfony.com/) engine.
 
@@ -51,7 +55,7 @@ In View we use [Twig](https://twig.symfony.com/) engine.
 
 - We are using bootstap 3 and Jquery taken by his official CDN.
 
-## Controller
+### Controller
 
 All controller classes extends *src/Controller.php* and is stored on *src/controller* folder. You can pass dependencies (e.g. models) in class constructor declaration, setting his attributes.
 
