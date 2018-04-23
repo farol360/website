@@ -21,6 +21,6 @@ The MVC concept are strongly implemented on this solution.
 
 In View we use [Twig](https://twig.symfony.com/) engine.
 
- - functions used in layout.twig like "get_name()" or "get_email()" are defined in src/twig/AuthExtension.php file;
+Functions used in layout.twig like "get_name()" or "get_email()" are defined in src/twig/AuthExtension.php file;
 
- - the model layer work with 2 classes: a plain class refering exactly the table in db and a same name ended by **Model** pair class with extends *src/Model.php* class. This class have all sql functions. The way to add a new class is: 1) create the *NamedDBObject.php" in *src/model* (you can take any other class already implemented as template), than 2) create a NamedDBObjectModel.php and 3) insert a function on *src/model/EntityFactory.php* class (we work with factory design patern).
+The model layer work with 2 classes: a plain class refering exactly the table in db and a same name ended by **Model** pair class with extends *src/Model.php* class. This class have all sql functions. The way to add a new class is: 1) create the *NamedDBObject.php" in *src/model* (you can take any other class already implemented as template), than 2) create a NamedDBObjectModel.php and 3) insert a function on *src/model/EntityFactory.php* class (we work with factory design patern).
