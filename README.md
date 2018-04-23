@@ -12,7 +12,7 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
  - Composer;
  - Jquery 3;
  - Bootstrap 3;
- - [Tim Creative Material Kit](https://github.com/timcreative).
+ - [Tim Creative Material Kit](https://github.com/creativetimofficial/material-dashboard).
 
 
 ## Usage
