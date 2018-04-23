@@ -28,7 +28,7 @@ Functions used in layout.twig like "get_name()" or "get_email()" are defined in 
 The model layer work with 2 classes: a plain class refering exactly the table in db and a same name ended by **Model** pair class with extends *src/Model.php* class. This class have all sql functions.
 
 The way to add a new class is:
- - 1) Supose you have an example table in you db. Create the **Example.php* in *src/model* (you can take any other class already implemented as template);
- - 2) Create a **ExampleModel.php** in same directory;
- - 3) Insert a function on *src/model/EntityFactory.php* with an array $data as parameter and return a new Example instance. (this is a Factory design pattern implementation);
- - 4) Add the **exampleModel** class as atribute in controller you want to work. You will need to pass it as parameter in contructor and update constructor call on *src/dependencies* file.
+1) Supose you have an example table in you db. Create the **Example.php* in *src/model* (you can take any other class already implemented as template);
+2) Create a **ExampleModel.php** in same directory;
+3) Insert a function on *src/model/EntityFactory.php* with an array $data as parameter and return a new Example instance. (this is a Factory design pattern implementation);
+4) Add the **exampleModel** class as atribute in controller you want to work. You will need to pass it as parameter in contructor and update constructor call on *src/dependencies* file.
