@@ -31,7 +31,7 @@ return [
 
     // View settings
     'view' => [
-        'template_path' => __DIR__ . '/templates',
+        'template_path' => __DIR__ . '/view',
         'twig' => [
             'auto_reload' => true,
             'cache' => __DIR__ . '/../cache/twig',
