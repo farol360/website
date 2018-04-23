@@ -37,16 +37,13 @@ cp .env.edit .env
 ```
 vendor/bin/phinx migrate
 ```
+## Authors
 
+- **Maurício Fauth** - *Initial work*
+- **Thiago Nardi**
 
-## Folder Structure
+## License
 
-```
-ancora\
-    sass\
-        _variables.scss
-        admin.scss
-        app.scss
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/thnardi/ancora/blob/master/LICENSE) file for details.
 
-```
 
