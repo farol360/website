@@ -34,11 +34,6 @@ $app->group('/admin', function () {
         $this->post('/update', RoleAdmin::class . ':update');
     });
 
-    /**
-        Trash index route
-    */
-    $this->get('/trash', TrashAdmin::class . ':index');
-
     $this->group('/user', function () {
         $this->get('[/]', UserAdmin::class . ':index');
         $this->get('/all', UserAdmin::class . ':index');
