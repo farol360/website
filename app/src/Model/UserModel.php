@@ -63,15 +63,15 @@ class UserModel extends Model
             ':role_id' => $user->role_id,
             ':nascimento' => $user->nascimento,
             ':cpf' => $user->cpf,
-            ':tel_area' => $user->telArea,
-            ':tel_numero' => $user->telNumero,
-            ':end_rua' => $user->endRua,
-            ':end_numero' => $user->endNumero,
+            ':tel_area' => $user->tel_area,
+            ':tel_numero' => $user->tel_numero,
+            ':end_rua' => $user->end_rua,
+            ':end_numero' => $user->end_numero,
             ':end_complemento' => $user->endComplemento,
-            ':end_bairro' => $user->endBairro,
-            ':end_cidade' => $user->endCidade,
-            ':end_estado' => $user->endEstado,
-            ':end_cep' => $user->endCep,
+            ':end_bairro' => $user->end_bairro,
+            ':end_cidade' => $user->end_cidade,
+            ':end_estado' => $user->end_estado,
+            ':end_cep' => $user->end_cep,
             ':active' => 1,
             ':deleted' => 0,
             ':created_at' => time(),
@@ -127,7 +127,7 @@ class UserModel extends Model
                 roles.name AS role
             FROM
                 users
-                LEFT JOIN roles ON roles.id = users.id_role
+                LEFT JOIN roles ON roles.id = users.role_id
             WHERE
                 deleted != 1
             LIMIT ? , ?
@@ -217,22 +217,7 @@ class UserModel extends Model
         return $stmt->fetchAll();
     }
 
-    public function update($id,
-        $email,
-        $name,
-        $nascimento,
-        $cpf,
-        $telArea,
-        $telNumero,
-        $endRua,
-        $endNumero,
-        $endComplemento,
-        $endBairro,
-        $endCidade,
-        $endEstado,
-        $endCep,
-        $role_id,
-        $password = null): bool
+    public function update(User $user): bool
     {
 
         $sql = "
@@ -266,21 +251,22 @@ class UserModel extends Model
         ";
         $query = $this->db->prepare($sql);
         $parameters = [
-            ':id' => (int) $id,
-            ':email' => $email,
-            ':name' => $name,
-            ':nascimento' => $nascimento,
-            ':cpf' => $cpf,
-            ':tel_area' => $telArea,
-            ':tel_numero' => $telNumero,
-            ':end_rua' => $endRua,
-            ':end_numero' => $endNumero,
-            ':end_complemento' => $endComplemento,
-            ':end_bairro' => $endBairro,
-            ':end_cidade' => $endCidade,
-            ':end_estado' => $endEstado,
-            ':end_cep' => $endCep,
-            ':role_id' => $role_id,
+            ':id' => (int) $user->id,
+            ':email' => $user->email,
+            ':name' => $user->name,
+            ':password' => $user->password,
+            ':role_id' => $user->role_id,
+            ':nascimento' => $user->nascimento,
+            ':cpf' => $user->cpf,
+            ':tel_area' => $user->tel_area,
+            ':tel_numero' => $user->tel_numero,
+            ':end_rua' => $user->end_rua,
+            ':end_numero' => $user->end_numero,
+            ':end_complemento' => $user->endComplemento,
+            ':end_bairro' => $user->end_bairro,
+            ':end_cidade' => $user->end_cidade,
+            ':end_estado' => $user->end_estado,
+            ':end_cep' => $user->end_cep
 
         ];
         if (!empty($password)) {

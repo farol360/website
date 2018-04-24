@@ -74,7 +74,7 @@ class UserController extends Controller
         $currentUser = $this->userModel->get();
         if ($userId == $currentUser->id) {
             $this->flash->addMessage('danger', 'Não é possível remover seu próprio usuário.');
-            return $this->httpRedirect($request, $response, '/admin/user');
+            return $this->httpRedirect($request, $response, '/admin/user/all');
         }
         $this->userModel->delete((int)$userId);
         $this->flash->addMessage('success', 'Usuário removido com sucesso.');
@@ -168,6 +168,6 @@ class UserController extends Controller
         $this->userModel->update($user);
 
         $this->flash->addMessage('success', 'Usuário atualizado com sucesso.');
-        return $this->httpRedirect($request, $response, '/admin/user');
+        return $this->httpRedirect($request, $response, '/admin/user/all');
     }
 }
