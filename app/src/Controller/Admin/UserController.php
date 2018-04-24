@@ -78,7 +78,7 @@ class UserController extends Controller
         }
         $this->userModel->delete((int)$userId);
         $this->flash->addMessage('success', 'Usuário removido com sucesso.');
-        return $this->httpRedirect($request, $response, '/admin/user');
+        return $this->httpRedirect($request, $response, '/admin/user/all');
     }
 
     public function edit(Request $request, Response $response, array $args): Response
