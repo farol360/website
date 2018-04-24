@@ -13,6 +13,8 @@ We create a [guide](https://github.com/thnardi/ancora/blob/master/GUIDE.md) to h
  - php 7+;
  - Composer;
  - Jquery 3;
+ - Jquery Validator;
+ - Jquery Mask;
  - Bootstrap 3;
  - [Tim Creative Material Kit](https://github.com/creativetimofficial/material-dashboard).
 
