@@ -5,57 +5,89 @@ namespace Farol360\Ancora\Model;
 
 use Farol360\Ancora\Model;
 use Farol360\Ancora\Model\Role;
-use GuzzleHttp\Client;
 
 class RoleModel extends Model
 {
     public function add(Role $role)
     {
-        $client = new Client();
-        $response = $client->request('POST', $this->baseUrl . 'roles', ['json' => $role, 'auth' => ['root', 'root']]);
-        if ($response->getStatusCode() == 200) {
-            return $response;
+        $sql = "
+            INSERT INTO roles (name, description, access_level)
+            VALUES (:name, :description, :access_level)
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [
+            ':name' => $role->name,
+            ':description' => $role->description,
+            ':access_level' => $role->access_level
+        ];
+        if ($query->execute($parameters)) {
+            return $this->db->lastInsertId();
+        } else {
+            return null;
         }
-        return null;
     }
 
     public function delete(int $id): bool
     {
-        $client = new Client();
-        $response = $client->request('DELETE', $this->baseUrl . 'roles/'. $id, [
-            'auth' => ['root', 'root']
-        ]);
-        if ($response->getStatusCode() == 200) {
-            return true;
-        }
-        return false;
+        $sql = "DELETE FROM roles WHERE id = :id";
+        $query = $this->db->prepare($sql);
+        $parameters = [':id' => $id];
+        return $query->execute($parameters);
     }
 
     public function get(int $id)
     {
-        $client = new Client();
-        $response = $client->request('GET', $this->baseUrl . 'roles/'. $id, [
-            'auth' => ['root', 'root']
-        ]);
-        return json_decode((string)$response->getBody());
+        $sql = "
+            SELECT
+                *
+            FROM
+                roles
+            WHERE
+                id = :id
+            LIMIT 1
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [':id' => $id];
+        $query->execute($parameters);
+        $query->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Role::class);
+        return $query->fetch();
     }
 
     public function getAll(): array
     {
-        $client = new Client();
-        $response = $client->request('GET', $this->baseUrl . 'roles', [
-            'auth' => ['root', 'root']
-        ]);
-        return json_decode((string)$response->getBody());
+        $sql = "
+            SELECT
+                *
+            FROM
+                roles
+            ORDER BY
+                access_level ASC
+        ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $query->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Role::class);
+        return $query->fetchAll();
     }
 
     public function update(Role $role): bool
     {
-        $client = new Client();
-        $response = $client->request('PUT', $this->baseUrl . 'roles/'. $role->id, ['json' => $role, 'auth' => ['root', 'root']]);
-        if ($response->getStatusCode() == 200) {
-            return true;
-        }
-        return false;
+        $sql = "
+            UPDATE
+                roles
+            SET
+                name = :name,
+                description = :description,
+                access_level = :access_level
+            WHERE
+                id = :id
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [
+            ':name' => $role->name,
+            ':description' => $role->description,
+            ':access_level' => $role->access_level,
+            ':id' => $role->id
+        ];
+        return $query->execute($parameters);
     }
 }

@@ -52,8 +52,8 @@ The way to add a new class is:
 In View we use [Twig](https://twig.symfony.com/) engine.
 
 - Functions used in layout.twig like "get_name()" or "get_email()" are defined in src/twig/AuthExtension.php file;
-
 - We are using bootstap 3 and Jquery taken by his official CDN.
+- Also we are using this amazing free bootstrap material design admin template from Creatimve Tim Official. (see his github [repository](https://github.com/creativetimofficial/material-dashboard)). The `.css` and `.js` are included on `layout.twig` for fron and admin pages.
 
 ### Controller
 

@@ -37,6 +37,10 @@ cp .env.edit .env
 ```
 vendor/bin/phinx migrate
 ```
+6) run your php local server. apoint public_html as the root of your server
+```
+php -S localhost:8080 -t public_html/
+```
 ## Authors
 
 - **Maurício Fauth** - *Initial work*

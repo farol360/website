@@ -123,11 +123,11 @@ class UserModel extends Model
     {
         $sql = "
             SELECT
-                user.*,
-                role.name AS role
+                users.*,
+                roles.name AS role
             FROM
-                user
-                LEFT JOIN role ON role.id = user.id_role
+                users
+                LEFT JOIN roles ON roles.id = users.id_role
             WHERE
                 deleted != 1
             LIMIT ? , ?
