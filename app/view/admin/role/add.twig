@@ -22,7 +22,7 @@
       <div class="col-md-6">
         <form role="form" data-toggle="validator" action="{{ base_url() }}/admin/role/add" method="POST">
           <div class="form-group">
-            <label for="name">Nome:</label>
+            <label for="name">Slug:</label>
             <input class="form-control" id="name" type="text" name="name" placeholder="Nome" pattern="[a-z]{1,}" title="Somente letras minúsculas" autofocus required>
             <p id="name-error" style="color:red;"></p>
             <script type="text/javascript">
@@ -39,7 +39,7 @@
             });</script>
           </div>
           <div class="form-group">
-            <label for="description">Descrição:</label>
+            <label for="description">Nome:</label>
             <input id="description" class="form-control" type="text" name="description" placeholder="Nome" required>
           </div>
           <div class="form-group">

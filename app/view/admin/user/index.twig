@@ -15,16 +15,19 @@
       <div class="col-sm-8">
         <h3>{{ page_title }}</h3>
       </div>
-    <p class="pull-right">
-        {% if users -%}
-        <a class="btn btn-default" href="{{ base_url() }}/admin/user/export">
-          <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
-        </a>
-        {%- endif %}
-        <a class="btn btn-success" href="{{ base_url() }}/admin/user/add">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </a>
-      </p>
+      <div class="col-sm-4">
+        <p class="pull-right">
+          {% if users -%}
+            <a class="btn btn-default" href="{{ base_url() }}/admin/user/export">
+              <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+            </a>
+          {%- endif %}
+          <a class="btn btn-success" href="{{ base_url() }}/admin/user/add">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </a>
+        </p>
+      </div>
+
     </div>
 
   </div>

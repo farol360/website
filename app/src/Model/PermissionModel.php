@@ -5,57 +5,94 @@ namespace Farol360\Ancora\Model;
 
 use Farol360\Ancora\Model;
 use Farol360\Ancora\Model\Permission;
-use GuzzleHttp\Client;
 
 class PermissionModel extends Model
 {
     public function add(Permission $permission)
     {
-        $client = new Client();
-        $response = $client->request('POST', $this->baseUrl . 'permissions', ['json' => $permission, 'auth' => ['root', 'root']]);
-        if ($response->getStatusCode() == 200) {
-            return $response;
+        $sql = "
+            INSERT INTO permissions (
+                resource,
+                description,
+                role_id
+                )
+            VALUES (:resource, :description, :role_id)
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [
+            ':resource'     => $permission->resource,
+            ':description'  => $permission->description,
+            ':role_id'      => $permission->role_id
+        ];
+        if ($query->execute($parameters)) {
+            return $this->db->lastInsertId();
+        } else {
+            return null;
         }
-        return null;
     }
 
     public function delete(int $id): bool
     {
-        $client = new Client();
-        $response = $client->request('DELETE', $this->baseUrl . 'permissions/'. $id, [
-            'auth' => ['root', 'root']
-        ]);
-        if ($response->getStatusCode() == 200) {
-            return true;
-        }
-        return false;
+       $sql = "DELETE FROM permissions WHERE id = :id";
+        $query = $this->db->prepare($sql);
+        $parameters = [':id' => $id];
+        return $query->execute($parameters);
     }
 
     public function get(int $id)
     {
-        $client = new Client();
-        $response = $client->request('GET', $this->baseUrl . 'permissions/'. $id, [
-            'auth' => ['root', 'root']
-        ]);
-        return json_decode((string)$response->getBody());
+        $sql = "
+            SELECT
+                *
+            FROM
+                permissions
+            WHERE
+                id = :id
+            LIMIT 1
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [':id' => $id];
+        $query->execute($parameters);
+        $query->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Permission::class);
+        return $query->fetch();
     }
 
     public function getAll(): array
     {
-        $client = new Client();
-        $response = $client->request('GET', $this->baseUrl . 'permissions', [
-            'auth' => ['root', 'root']
-        ]);
-        return json_decode((string)$response->getBody());
+        $sql = "
+            SELECT
+                permissions.*,
+                roles.name as role
+            FROM
+                permissions LEFT JOIN roles ON roles.id = permissions.role_id
+            ORDER BY
+                id ASC
+        ";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $query->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Permission::class);
+        return $query->fetchAll();
     }
 
     public function update(Permission $permission): bool
     {
-        $client = new Client();
-        $response = $client->request('PUT', $this->baseUrl . 'permissions/'. $permission->id, ['json' => $permission, 'auth' => ['root', 'root']]);
-        if ($response->getStatusCode() == 200) {
-            return true;
-        }
-        return false;
+        $sql = "
+            UPDATE
+                permissions
+            SET
+                resource = :resource,
+                description = :description,
+                role_id = :role_id
+            WHERE
+                id = :id
+        ";
+        $query = $this->db->prepare($sql);
+        $parameters = [
+            ':resource'     => $permission->resource,
+            ':description'  => $permission->description,
+            ':role_id'      => $permission->role_id,
+            ':id'           => $permission->id
+        ];
+        return $query->execute($parameters);
     }
 }
