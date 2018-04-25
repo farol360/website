@@ -65,7 +65,12 @@ class PageController extends Controller
     public function index(Request $request, Response $response): Response
     {
 
-        return $this->view->render($response, 'page/index.twig');
+        $url = "https://api.instagram.com/v1/users/self/?access_token=4571961371.9e192a5.9b61c64ad8d74bb79e5f0f1e7e04ae0a";
+        $api_call = file_get_contents($url);
+
+        $instagram_farol = json_decode($api_call);
+
+        return $this->view->render($response, 'page/index.twig', ['instagram_farol' => $instagram_farol] );
     }
 
 }
