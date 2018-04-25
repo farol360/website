@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Farol360">
 
-    <!-- Set this when you have you favicon
+    <!-- Set this when you have you favicon !-->
 
-    <link rel="icon" href="{{ base_url() }}/favicon.png" type="image/x-icon">
-    !-->
+    <link rel="icon" href="{{ base_url() }}/images/favicon.png" type="image/x-icon">
 
-    <title>{% block html_title %}Ancora{% endblock %}</title>
+
+    <title>{% block html_title %}Farol 360{% endblock %}</title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
@@ -30,17 +30,29 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
     <!--  Material Dashboard CSS    -->
     <link href="{{ base_url() }}/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
 
-    <!-- Use this when you generate app from sass
+    <!-- Use this when you generate app from sass !-->
     <link href="{{ base_url() }}/css/app.css" rel="stylesheet">
-    !-->
+
 
     {% block stylesheets %}{% endblock %}
   </head>
 
   <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=194836671019621&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <header>
       <nav class="navbar navbar-default">
@@ -54,7 +66,8 @@
             </button>
 
             <!-- Here you change your brand !-->
-            <a class="navbar-brand" href="{{ base_url() }}" >Ancora </a>
+            <a class="navbar-brand" href="{{ base_url() }}" style="padding: 2px;" ><img style="height: 100%; " src="{{ base_url() }}/images/named.png"> </a>
+
           </div>
 
           <div class="collapse navbar-collapse" id="main-navbar">
@@ -101,7 +114,7 @@
     <footer class="footer">
       <div class="container">
         <p>
-          Ancora. You can change this message on layout.twig footer's tag. <small>Create with love by <a href="https://farol360.com.br">Farol360</a>.</small>
+          Website Farol 360. Construído com amor por <a href="https://farol360.com.br">Farol360</a>.
         </p>
       </div>
     </footer>
