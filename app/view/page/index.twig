@@ -7,7 +7,15 @@
   <section class="main-section" >
     <div class="container">
       <div class="row">
+
         <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <div class="hidden-xs col-sm-12">
+              <div style="height: 40px;">
+              </div>
+            </div>
+
+          </div>
           <img src="{{ base_url() }}/images/capacete.png" style="width:100%; ">
 
           <div class="row">
@@ -17,32 +25,79 @@
           </div>
 
           <div class="row">
-            <div class="col-xs-4">
-              <img src="{{ base_url() }}/images/face.png" width="60px;"> <div class="fb-like" data-href="https://www.facebook.com/farol360/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false  " style="margin-bottom: 10px;"></div>
+            <div class="col-xs-offset-3 col-xs-4">
+              <a href="https://www.facebook.com/farol360/"><img src="{{ base_url() }}/images/face.png" style="width:45px; margin-bottom:10px;"></a> <div class="fb-like" data-href="https://www.facebook.com/farol360/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false  " style=""></div>
             </div>
             <div class="col-xs-4">
-              <img src="{{ base_url() }}/images/insta.png" width="60px;">
-              <p>{{ instagram_farol.data.counts.followed_by }}</p>
-            </div>
-            <div class="col-xs-4">
-              <img src="{{ base_url() }}/images/twitter.png" width="60px;">
-              <div id="twitter-test">
+              <a href="https://www.instagram.com/farol360/"><img src="{{ base_url() }}/images/insta.png" width="45px;"></a>
+              <div style="    display: inline-block;
+                              padding: 5px;
+                              background-color: white;
+                              border-color: #ddd;
+                              border-style: solid;
+                              border-width: 1px;
+                              border-radius: 3px;"    ><a href="https://www.instagram.com/farol360/"><p style="margin-bottom:0px;">{{ instagram_farol.data.counts.followed_by }}
+                            </p></a>
               </div>
             </div>
+
           </div>
 
 
         </div>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-offset-1 col-sm-5">
+
+          <div><a href="https://www.instagram.com/farol360/"> <img src="{{ instagram_farol.data.profile_picture }}" style="width:60px; border-radius:50%; border-style:solid; border-color:#ddd; border-width:1px;"> </a> <a href="https://www.instagram.com/farol360/"><img src="{{ base_url() }}/images/Instagram_logo.png" style="width:150px; "></a>
+            </div>
+          <div class="card" style="max-height: 500px; margin-top:5px; padding-top: 5px; padding-left: 25px; padding-right:25px; padding-bottom:5px; overflow:auto;">
+
+
+            {% for instagram_farol_midia in instagram_farol_midias.data %}
+              <div class="row" style="margin-bottom:5px;">
+                <a href="https://www.instagram.com/farol360/"><img src="{{ instagram_farol.data.profile_picture }}" style="width:35px; border-radius:50%; border-style:solid; border-color:#ddd; border-width:1px;"></a> <a href="https://www.instagram.com/farol360/"><span style="font-weight:500;">{{ instagram_farol.data.username }} </span></a>
+              </div>
+              <div class="row">
+                {% if instagram_farol_midia.type == "image" %}
+                  <a href="{{ instagram_farol_midia.link }}"><img src="{{ instagram_farol_midia.images.standard_resolution.url }}" style=""></a>
+                {% else %}
+                  <a href="{{ instagram_farol_midia.link }}"><video controls><source src="{{ instagram_farol_midia.videos.standard_resolution.url }}" type="video/mp4" style=""></video> </a>
+                {% endif %}
+              </div>
+
+              <div class="row" style="margin-top: 5px;">
+                <p style=""><span style="font-weight:500;">{{ instagram_farol.data.username }} </span>{{ instagram_farol_midia.caption.text }}</p>
+              </div>
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {#
+      <div class="row">
+        <div class="col-xs-12">
           <div class="card">
             <div class="card-content">
-              <h3 class="">Fique por dentro.</h3>
-              <p>Cadastre-se agora em nossa lista de emails para receber atualizações sobre trabalhos, novidades, entre outros.</p>
+              <div class="row">
+                <h3 class="">Fique por dentro.</h3>
+                <p>Cadastre-se agora em nossa lista de emails para receber atualizações sobre trabalhos, novidades, entre outros.</p>
+              </div>
+
+              <div class="row form-group">
+                <select class="form-control">
+                  <option>Quero receber novidades sobre projetos!</option>
+                  <option>Procuro oportunidade de trabalho!</option>
+                </select>
+              </div>
+
             </div>
           </div>
 
         </div>
       </div>
+
+
+      #}
     </div>
   </section>
 
