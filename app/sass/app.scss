@@ -2,13 +2,30 @@
 
 
 header {
-  height: 10vh;
+  min-height: 10vh;
 }
 
 .main-section {
-  height: 80vh;
+  min-height: 80vh;
 }
 
 footer {
-  height: 10vh;
+  padding: 0px;
 }
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display:none;
+    a {
+      color: black;
+    }
+  }
+}
+
+
+  .sidebar::before {
+    background-color:white;
+  }
+
+
+
