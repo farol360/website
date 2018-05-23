@@ -46,7 +46,11 @@ $app->group('/admin', function () {
     });
 });
 
+$app->get('/ancora', Page::class . ':ancora');
+
 $app->map(['GET', 'POST'], '/contato', Page::class . ':contato');
+
+$app->get('/home_render', Page::class . ':home_render');
 
 $app->get('/obrigado', Page::class . ':contatoObrigado');
 

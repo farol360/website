@@ -151,6 +151,16 @@ class BaseDataMigration extends AbstractMigration
                 'role_id' => 2,
             ],
             [
+                'resource' => '/ancora',
+                'description' => 'page do ancora',
+                'role_id' => 1,
+            ],
+            [
+                'resource' => '/home_render',
+                'description' => 'render da home page',
+                'role_id' => 1,
+            ],
+            [
                 'resource' => '/users/profile',
                 'description' => 'Ver perfil',
                 'role_id' => 4,
