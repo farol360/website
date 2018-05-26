@@ -65,14 +65,17 @@ class PageController extends Controller
     public function index(Request $request, Response $response): Response
     {
 
-        $url = "https://api.instagram.com/v1/users/self/?access_token=4571961371.9e192a5.9b61c64ad8d74bb79e5f0f1e7e04ae0a";
+        $url = "https://api.instagram.com/v1/users/self/?access_token=4571961371.9e192a5.c4f149b6b6574927aead18d30ee12698";
         $api_call = file_get_contents($url);
 
-        $instagram_farol = json_decode($api_call);
-        $instagram_midia_farol = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4571961371.9e192a5.9b61c64ad8d74bb79e5f0f1e7e04ae0a&count=5";
+        if ($api_call != null) {
+            $instagram_farol = json_decode($api_call);
+            $instagram_midia_farol = "https://api.instagram.com/v1/users/self/media/recent/?access_token=4571961371.9e192a5.c4f149b6b6574927aead18d30ee12698&count=5";
 
-        $instagram_farol_midias = file_get_contents($instagram_midia_farol);
-        $instagram_farol_midias = json_decode($instagram_farol_midias);
+            $instagram_farol_midias = file_get_contents($instagram_midia_farol);
+            $instagram_farol_midias = json_decode($instagram_farol_midias);
+        }
+
 
         return $this->view->render($response, 'page/index.twig', [
             'instagram_farol'        => $instagram_farol,
