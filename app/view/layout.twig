@@ -57,7 +57,7 @@
     <div class="sidebar" style="background-color:white;">
 
             <ul class="nav navbar-nav " >
-              <li {% if nav_active == 'ancora' %} class="active" {% else %} {% endif %}><a id="ancora-link" style="cursor: pointer;">Âncora</a></li>
+              <li {% if nav_active == 'ancora' %} class="active" {% else %} {% endif %}><a href="{{ base_url() }}/ancora" style="cursor: pointer;">Âncora</a></li>
               <li {% if nav_active == 'blog' %} class="active" {% else %} {% endif %}><a style="color:black;" href="{{ base_url() }}/blog">Blog</a></li>
               <li {% if nav_active == 'planos' %} class="active" {% else %} {% endif %}><a style="color:black;" href="{{ base_url() }}/planos">Planos</a></li>
               {%- if is_auth() %}
@@ -97,13 +97,13 @@
             </button>
 
             <!-- Here you change your brand !-->
-            <a id="index-link" class="navbar-brand" style="padding: 2px; cursor: pointer;" ><img style="height: 100%; " src="{{ base_url() }}/images/named.png"> </a>
+            <a id="index-link" class="navbar-brand" style="padding: 2px; cursor: pointer;" href="{{ base_url() }}"><img style="height: 100%; " src="{{ base_url() }}/images/named.png"> </a>
 
           </div>
 
           <div class="collapse navbar-collapse navbar-right " id="main-navbar">
             <ul class="nav navbar-nav ">
-               <li {% if nav_active == 'ancora' %} class="active" {% else %} {% endif %}><a id="ancora-link" style="cursor: pointer;">Âncora</a></li>
+               <li {% if nav_active == 'ancora' %} class="active" {% else %} {% endif %}><a href="{{ base_url() }}/ancora" style="cursor: pointer;">Âncora</a></li>
               <li {% if nav_active == 'blog' %} class="active" {% else %} {% endif %}><a href="{{ base_url() }}/blog">Blog</a></li>
               <li {% if nav_active == 'planos' %} class="active" {% else %} {% endif %}><a href="{{ base_url() }}/planos">Planos</a></li>
 

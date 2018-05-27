@@ -26,6 +26,11 @@ class PageController extends Controller
         $this->entityFactory    = $entityFactory;
     }
 
+    public function ancora(Request $request, Response $response): Response
+    {
+        return $this->view->render($response, 'page/ancora.twig');
+    }
+
     public function contato(Request $request, Response $response): Response
     {
         if (empty($request)) {

@@ -1,0 +1,46 @@
+{% extends "layout.twig" %}
+{% set nav_active = 'index' %}
+{% set nav_active = 'inicio' %}
+
+{% block content -%}
+
+  <section class="main-section" style="    padding-top: 4px;" >
+    <div class="container">
+      <div  class="row">
+        <div class="col-xs-12 col-sm-4">
+          <h1>Âncora</h1>
+          <h3>A plataforma que se adapta ao seu negócio.</h3>
+          <h4>Elaboramos projetos 100% customizáveis e os mantemos em constante evolução, acompanhando o crescimento da sua organização.</h4>
+          <h4>Acesse o <a href="https://ancora.farol360.com.br">Olá Mundo</a>!</h4>
+        </div>
+         <div id="ancora-page" class="col-sm-8 page">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <img src="{{ base_url() }}/ancora_example.png" style="width:100%;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{%- endblock %}
+{% block javascripts %} {{ parent()}}
+
+<script type="text/javascript">
+
+$(".card").perfectScrollbar();
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#ancora-page').css("display", "none");
+  $('#ancora-page').show("slow");
+});
+
+</script>
+{% endblock %}

@@ -76,16 +76,6 @@
             {% endfor %}
           </div>
         </div>
-        <div id="ancora-page" class="col-sm-6 page">
-          <div class="row">
-            <div class="col-sm-12">
-              <h1>Âncora</h1>
-              <h4>Construindo aplicações para internet 100% customizaveis.</h4>
-              <img src="{{ base_url() }}/ancora_example.png" style="width:100%;">
-              <h4>Acesse o <a href="https://ancora.farol360.com.br">Olá Mundo</a>!</h4>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -102,18 +92,7 @@ $(".card").perfectScrollbar();
 <script type="text/javascript">
 $(document).ready(function() {
   $('#index-page').css("display", "none");
-  $('#ancora-page').css("display", "none");
   $('#index-page').show("slow");
-
-  $('#ancora-link').click(function() {
-    $('.page').hide("slow");
-    $('#ancora-page').show("slow");
-  });
-
-  $('#index-link').click(function() {
-    $('.page').hide("slow");
-    $('#index-page').show("slow");
-  });
 });
 
 </script>
